@@ -1,0 +1,214 @@
+/* переменные цвета */
+/* анимация */
+@-webkit-keyframes btn_shadow_on {
+  from {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  to {
+    -webkit-box-shadow: 3px 3px 5px #a03131;
+            box-shadow: 3px 3px 5px #a03131;
+  }
+}
+@keyframes btn_shadow_on {
+  from {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  to {
+    -webkit-box-shadow: 3px 3px 5px #a03131;
+            box-shadow: 3px 3px 5px #a03131;
+  }
+}
+@-webkit-keyframes btn_shadow_off {
+  from {
+    -webkit-box-shadow: 3px 3px 5px #a03131;
+            box-shadow: 3px 3px 5px #a03131;
+  }
+  to {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+@keyframes btn_shadow_off {
+  from {
+    -webkit-box-shadow: 3px 3px 5px #a03131;
+            box-shadow: 3px 3px 5px #a03131;
+  }
+  to {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+@-webkit-keyframes block_on {
+  from {
+    display: block;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 50%;
+  }
+  to {
+    display: block;
+  }
+}
+@keyframes block_on {
+  from {
+    display: block;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 50%;
+  }
+  to {
+    display: block;
+  }
+}
+@-webkit-keyframes block_off {
+  from {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes block_off {
+  from {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  to {
+    visibility: hidden;
+  }
+}
+/* основоной блок */
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 1016px;
+  margin: 0 auto;
+}
+header {
+  width: 100%;
+  height: 48px;
+  background-color: #0123e4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+main {
+  width: 100%;
+  min-height: 700px;
+  background-color: #f9ebe8;
+}
+.main_nav {
+  width: 100%;
+  height: 90px;
+}
+.congratulate {
+  width: 100%;
+}
+.congratulate_them,
+.congr_select_him,
+.congr_select_her {
+  width: 100%;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 0 100px 0;
+  -webkit-animation: block_on 2s;
+          animation: block_on 2s;
+}
+.congratulate_him,
+.congratulate_her,
+.birthday_him,
+.new_year_him,
+.february_23,
+.another_him,
+.birthday_her,
+.new_year_her,
+.march_8,
+.another_her {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #ec2e2e;
+  background-color: #ec2e2e;
+  border-radius: 20px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-animation: btn_shadow_off 0.5s;
+          animation: btn_shadow_off 0.5s;
+}
+.congratulate_him:hover,
+.congratulate_her:hover,
+.birthday_him:hover,
+.new_year_him:hover,
+.february_23:hover,
+.another_him:hover,
+.birthday_her:hover,
+.new_year_her:hover,
+.march_8:hover,
+.another_her:hover {
+  -webkit-animation: btn_shadow_on 0.5s;
+          animation: btn_shadow_on 0.5s;
+  -webkit-box-shadow: 3px 3px 5px #a03131;
+          box-shadow: 3px 3px 5px #a03131;
+}
+.congratulate_him:active,
+.congratulate_her:active,
+.birthday_him:active,
+.new_year_him:active,
+.february_23:active,
+.another_him:active,
+.birthday_her:active,
+.new_year_her:active,
+.march_8:active,
+.another_her:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.comgratulate_text {
+  width: 100%;
+  min-height: 50px;
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+}
+footer {
+  width: 100%;
+  min-height: 68px;
+  border-top: 1px solid #8262ab;
+  background-color: #f9ebe8;
+}
+/*  выключение блока */
+.off_block {
+  -webkit-animation: block_off 5s;
+          animation: block_off 5s;
+  visibility: hidden;
+}
+.off_block_off {
+  -webkit-animation: block_off 5s;
+          animation: block_off 5s;
+  display: none;
+}

@@ -6,8 +6,8 @@
             box-shadow: none;
   }
   to {
-    -webkit-box-shadow: 3px 3px 5px #a03131;
-            box-shadow: 3px 3px 5px #a03131;
+    -webkit-box-shadow: 5px 5px 5px #a03131;
+            box-shadow: 5px 5px 5px #a03131;
   }
 }
 @keyframes btn_shadow_on {
@@ -16,14 +16,14 @@
             box-shadow: none;
   }
   to {
-    -webkit-box-shadow: 3px 3px 5px #a03131;
-            box-shadow: 3px 3px 5px #a03131;
+    -webkit-box-shadow: 5px 5px 5px #a03131;
+            box-shadow: 5px 5px 5px #a03131;
   }
 }
 @-webkit-keyframes btn_shadow_off {
   from {
-    -webkit-box-shadow: 3px 3px 5px #a03131;
-            box-shadow: 3px 3px 5px #a03131;
+    -webkit-box-shadow: 5px 5px 5px #a03131;
+            box-shadow: 5px 5px 5px #a03131;
   }
   to {
     -webkit-box-shadow: none;
@@ -32,8 +32,8 @@
 }
 @keyframes btn_shadow_off {
   from {
-    -webkit-box-shadow: 3px 3px 5px #a03131;
-            box-shadow: 3px 3px 5px #a03131;
+    -webkit-box-shadow: 5px 5px 5px #a03131;
+            box-shadow: 5px 5px 5px #a03131;
   }
   to {
     -webkit-box-shadow: none;
@@ -45,9 +45,8 @@
     display: block;
     opacity: 0;
   }
-  50% {
-    display: block;
-    opacity: 50%;
+  90% {
+    opacity: 90%;
   }
   to {
     display: block;
@@ -58,9 +57,8 @@
     display: block;
     opacity: 0;
   }
-  50% {
-    display: block;
-    opacity: 50%;
+  90% {
+    opacity: 90%;
   }
   to {
     display: block;
@@ -70,22 +68,16 @@
   from {
     opacity: 100%;
   }
-  50% {
-    opacity: 50%;
-  }
   to {
-    visibility: hidden;
+    opacity: 0%;
   }
 }
 @keyframes block_off {
   from {
     opacity: 100%;
   }
-  50% {
-    opacity: 50%;
-  }
   to {
-    visibility: hidden;
+    opacity: 0%;
   }
 }
 /* основоной блок */
@@ -133,8 +125,8 @@ main {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin: 0 0 100px 0;
-  -webkit-animation: block_on 2s;
-          animation: block_on 2s;
+  -webkit-animation: block_on 1.5s;
+          animation: block_on 1.5s;
 }
 .congratulate_him,
 .congratulate_her,
@@ -172,8 +164,8 @@ main {
 .another_her:hover {
   -webkit-animation: btn_shadow_on 0.5s;
           animation: btn_shadow_on 0.5s;
-  -webkit-box-shadow: 3px 3px 5px #a03131;
-          box-shadow: 3px 3px 5px #a03131;
+  -webkit-box-shadow: 5px 5px 5px #a03131;
+          box-shadow: 5px 5px 5px #a03131;
 }
 .congratulate_him:active,
 .congratulate_her:active,

@@ -13,13 +13,13 @@
     }
 
     to {
-        box-shadow: 3px 3px 5px @colorShadowBTN;
+        box-shadow: 5px 5px 5px @colorShadowBTN;
     }
 }
 
 @keyframes btn_shadow_off {
     from {
-        box-shadow: 3px 3px 5px @colorShadowBTN;
+        box-shadow: 5px 5px 5px @colorShadowBTN;
     }
 
     to {
@@ -33,9 +33,8 @@
         opacity: 0;
     }
 
-    50% {
-        display: block;
-        opacity: 50%;
+    90% {
+        opacity: 90%;
     }
 
     to {
@@ -48,13 +47,8 @@
         opacity: 100%;
     }
 
-    50% {
-        opacity: 50%;
-    }
-
     to {
-        visibility: hidden;
-        ;
+        opacity: 0%;
     }
 }
 
@@ -103,7 +97,7 @@ main {
     flex-wrap      : nowrap;
     justify-content: space-around;
     margin         : 0 0 100px 0;
-    animation      : block_on 2s;
+    animation      : block_on 1.5s;
 }
 
 .congratulate_him,
@@ -140,7 +134,7 @@ main {
 .march_8:hover,
 .another_her:hover {
     animation : btn_shadow_on 0.5s;
-    box-shadow: 3px 3px 5px @colorShadowBTN;
+    box-shadow: 5px 5px 5px @colorShadowBTN;
 }
 
 .congratulate_him:active,
@@ -175,6 +169,7 @@ footer {
 .off_block {
     animation : block_off 5s;
     visibility: hidden;
+
 }
 
 .off_block_off {

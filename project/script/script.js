@@ -35,10 +35,10 @@ window.addEventListener('load', () => {
             let congrWhich = ev.srcElement.dataset.two;
             findings.congratulate = congrWhich;
 
-            let namberRnd = Math.floor(Math.random() * 20);// поменять на запрос к базе
+            let namberRnd = Math.floor(Math.random() * 20);// добавить запрос к базе
             findings.number = namberRnd;
 
-            let renderResult;
+            let renderResult; // переменная с результатом отбор + рандом. для вывода.
 
             if (findings.who === 'him') {
                 renderResult = `Поздравить ЕГО с `;

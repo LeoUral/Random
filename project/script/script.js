@@ -1,9 +1,10 @@
 //поставим оболочку для полной загрузки страницы
 window.addEventListener('load', () => {
 
-    let findings = {
+    this.findings = {
         who: "",
-        congratulate: ""
+        congratulate: "",
+        congrRnd: ""
     };
 
     //слушаем кнопки по выбору пола
@@ -35,58 +36,39 @@ window.addEventListener('load', () => {
             let congrWhich = ev.srcElement.dataset.two;
             findings.congratulate = congrWhich;
 
-            let namberRnd = Math.floor(Math.random() * 20);// добавить запрос к базе
-            findings.number = namberRnd;
+            findings.number = Math.floor(Math.random() * 4);// добавить в базу рандомное значение          
 
-            let renderResult; // переменная с результатом отбор + рандом. для вывода.
-
-            if (findings.who === 'him') {
-                renderResult = `Поздравить ЕГО с `;
-                switch (findings.congratulate) {
-                    case 'birthday':
-                        renderResult = renderResult + `Днем рождения` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'new_year':
-                        renderResult = renderResult + `Новым годом` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'february_23':
-                        renderResult = renderResult + `23 февраля` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'another':
-                        renderResult = renderResult + `чем то другим` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                }
-            } else {
-                renderResult = `Поздравить ЕЁ с `;
-                switch (findings.congratulate) {
-                    case 'birthday':
-                        renderResult = renderResult + `Днем рождения` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'new_year':
-                        renderResult = renderResult + `Новым годом` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'march_8':
-                        renderResult = renderResult + `8 марат` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                    case 'another':
-                        renderResult = renderResult + `чем то другим` + ` поздравление ${findings.number}`;
-                        findings.result = renderResult;
-                        break;
-                }
-            }
-
-            let position = document.querySelector('.comgratulate_text');
-            position.innerHTML = renderResult;
-
-        })
-    })
+            requestCongratulate(); //вывод рандоманого поздравления
+        });
+    });
 
     console.log(findings);
 }); // конец
+
+
+//запрос JSON-а файла, определение случайного поздравления
+async function requestCongratulate() {
+
+    const url = "./server/congratulate.json";
+
+    let response = await fetch(url);
+    let jsonData = await response.json();
+
+    console.log(jsonData);
+
+    for (let i = 0; i < jsonData.length; i++) {
+        if (jsonData[i].who == this.findings.who && jsonData[i].theme == this.findings.congratulate && jsonData[i].randomId == this.findings.number) {
+            this.findings.congrRnd = jsonData[i].congratulate;
+        }
+    }
+
+    console.log(this.findings.congrRnd);
+
+    renderCongr(); //Рендерит поздравление на экран
+};
+
+//функция рендерит поздравление на экран
+function renderCongr() {
+    let position = document.querySelector('.comgratulate_text');
+    position.innerHTML = this.findings.congrRnd;
+};

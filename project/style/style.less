@@ -89,32 +89,26 @@ main {
 
 .congratulate_them,
 .congr_select_him,
-.congr_select_her {
+.congr_select_her,
+.congr_select_group {
     width          : 100%;
     min-height     : 100px;
     display        : flex;
     flex-direction : row;
-    flex-wrap      : nowrap;
+    flex-wrap      : wrap;
     justify-content: space-around;
     margin         : 0 0 100px 0;
     animation      : block_on 1.5s;
 }
 
-.congratulate_him,
-.congratulate_her,
-.birthday_him,
-.new_year_him,
-.february_23,
-.another_him,
-.birthday_her,
-.new_year_her,
-.march_8,
-.another_her {
+.congr,
+.who {
     width           : 200px;
     height          : 50px;
     border          : 1px solid @colorBTN;
     background-color: @colorBTN;
     border-radius   : 20px;
+    margin          : 20px;
     padding         : 15px;
     box-sizing      : border-box;
     text-align      : center;
@@ -123,30 +117,14 @@ main {
     animation       : btn_shadow_off 0.5s;
 }
 
-.congratulate_him:hover,
-.congratulate_her:hover,
-.birthday_him:hover,
-.new_year_him:hover,
-.february_23:hover,
-.another_him:hover,
-.birthday_her:hover,
-.new_year_her:hover,
-.march_8:hover,
-.another_her:hover {
+.congr:hover,
+.who:hover {
     animation : btn_shadow_on 0.5s;
     box-shadow: 5px 5px 5px @colorShadowBTN;
 }
 
-.congratulate_him:active,
-.congratulate_her:active,
-.birthday_him:active,
-.new_year_him:active,
-.february_23:active,
-.another_him:active,
-.birthday_her:active,
-.new_year_her:active,
-.march_8:active,
-.another_her:active {
+.congr:active,
+.who:active {
     box-shadow: none;
 }
 

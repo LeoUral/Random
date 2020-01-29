@@ -18,13 +18,22 @@ window.addEventListener('load', () => {
             const herBtn = document.querySelector('.congratulate_her');
             const himBlock = document.querySelector('.congr_select_him');
             const herBlock = document.querySelector('.congr_select_her');
+            const groupBtn = document.querySelector('.congratulate_group');
+            const groupBlock = document.querySelector('.congr_select_group');
 
+            //отключаем в html не активные кнопки, включаем выбранный блок
             if (findings.who === 'him') {
                 herBtn.classList.add('off_block');
+                groupBtn.classList.add('off_block');
                 himBlock.classList.remove('off_block_off');
-            } else {
+            } else if (findings.who === 'her') {
                 himBtn.classList.add('off_block');
+                groupBtn.classList.add('off_block');
                 herBlock.classList.remove('off_block_off');
+            } else if (findings.who === 'group') {
+                himBtn.classList.add('off_block');
+                herBtn.classList.add('off_block');
+                groupBlock.classList.remove('off_block_off');
             }
         })
     });
@@ -33,10 +42,10 @@ window.addEventListener('load', () => {
     let congr = document.querySelectorAll('.congr');
     congr.forEach(function (congrBtn) {
         congrBtn.addEventListener('click', function (ev) {
-            let congrWhich = ev.srcElement.dataset.two;
+            let congrWhich = ev.srcElement.dataset.two;//определяем значение класса data-two
             findings.congratulate = congrWhich;
 
-            findings.number = Math.floor(Math.random() * 4);// добавить в базу рандомное значение          
+            findings.number = Math.floor(Math.random() * 4);// добавить в базу рандомное значение         
 
             requestCongratulate(); //вывод рандоманого поздравления
         });

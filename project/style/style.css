@@ -184,3 +184,8 @@ footer {
           animation: block_off 5s;
   display: none;
 }
+.off_color {
+  background-color: #ccc;
+  color: #fff;
+  border: 1px solid #ccc;
+}

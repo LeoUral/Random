@@ -23,17 +23,26 @@ window.addEventListener('load', () => {
 
             //отключаем в html не активные кнопки, включаем выбранный блок
             if (findings.who === 'him') {
-                herBtn.classList.add('off_block');
-                groupBtn.classList.add('off_block');
+                himBtn.classList.remove('off_color');
+                herBtn.classList.add('off_color');
+                groupBtn.classList.add('off_color');
                 himBlock.classList.remove('off_block_off');
+                herBlock.classList.add('off_block_off');
+                groupBlock.classList.add('off_block_off');
             } else if (findings.who === 'her') {
-                himBtn.classList.add('off_block');
-                groupBtn.classList.add('off_block');
+                herBtn.classList.remove('off_color');
+                himBtn.classList.add('off_color');
+                groupBtn.classList.add('off_color');
                 herBlock.classList.remove('off_block_off');
+                himBlock.classList.add('off_block_off');
+                groupBlock.classList.add('off_block_off');
             } else if (findings.who === 'group') {
-                himBtn.classList.add('off_block');
-                herBtn.classList.add('off_block');
+                groupBtn.classList.remove('off_color');
+                himBtn.classList.add('off_color');
+                herBtn.classList.add('off_color');
                 groupBlock.classList.remove('off_block_off');
+                himBlock.classList.add('off_block_off');
+                herBlock.classList.add('off_block_off');
             }
         })
     });

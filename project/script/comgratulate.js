@@ -174,7 +174,18 @@ class Congratulate {
                 let congrWhich = ev.srcElement.dataset.two;//определяем значение класса data-two
                 findings.congratulate = congrWhich;
 
-                findings.number = Math.floor(Math.random() * 4);// добавить в базу рандомное значение         
+                //ниже блок определения повторов
+                do {
+                    findings.number = Math.floor(Math.random() * 4);// добавить в базу рандомное значение   
+                } while (congratulate.alreadyViewedIds.includes(findings.number)); //проверяем случайность на повтор
+
+                congratulate.alreadyViewedIds = [...congratulate.alreadyViewedIds, findings.number]; // добавляем случайности в массив
+
+                console.log(congratulate.alreadyViewedIds);
+
+                if (congratulate.alreadyViewedIds.length >= 4) {
+                    congratulate.alreadyViewedIds = []; //сбрасываем массив случайностей
+                } // блок определения повторов закончен
 
                 console.log(findings.congratulate + " " + findings.number);
                 console.log(findings);

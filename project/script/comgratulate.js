@@ -9,6 +9,10 @@ let findings = {
     congrRnd: ""
 };
 
+const renderFirst = `
+<p class="main-block-data-menu">Ваша случайность из категории:<span class="cat-sel">Поздравления</span><span class="cat-settings" onclick="rendGo();" style="cursor: pointer;">Настроить фильтр</span><span class="next-random" onclick="firstRnd();" style="cursor: pointer;">Следующая случайность</span></p>
+        <div class="main-block-data-primary"></div>`
+
 const renderGo = `
 <p class="main-block-data-menu">Ваша случайность из категории:<span class="cat-sel">Поздравления</span><span class="cat-settings">Настроить фильтр</span><span class="next-random">Следующая случайность</span></p>
         <div class="main-block-data-primary">
@@ -113,9 +117,25 @@ const renderGo = `
 let btnGo = document.querySelector('.btn_go'); // кнопка пуска, загрузки, старта
 let mainBlock = document.querySelector('.main-block-data');
 btnGo.addEventListener('click', function () {
+    mainBlock.innerHTML = renderFirst;
+    congratulate.init();
+    setTimeout(firstRnd, 500);//время задержки, что бы успел выполниться callback у запроса
+});
+
+//грузим модуль в дивы
+function rendGo() {
+    let mainBlock = document.querySelector('.main-block-data');
     mainBlock.innerHTML = renderGo;
     congratulate.init();
-});
+};
+
+function firstRnd() {
+    let firstNumber = Math.floor(Math.random() * congratulate.data.length);
+    console.log(congratulate.data);
+    let firstText = congratulate.data[firstNumber].congratulate;
+    let firstBlock = document.querySelector('.main-block-data-primary');
+    firstBlock.innerHTML = firstText;
+}
 
 
 
@@ -221,6 +241,7 @@ class Congratulate {
 
 
 
+
     init() {
         this.congratulateSomeone();
         this.subjectCongratulations();
@@ -229,4 +250,4 @@ class Congratulate {
 }
 
 let congratulate = new Congratulate();
-congratulate.init();
+// congratulate.init();

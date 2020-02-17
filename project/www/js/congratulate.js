@@ -185,41 +185,13 @@ const renderGo = `
         </div>       
 `;
 
-//грузим модуль в дивы
-let congratulateLink = document.querySelector('.data-title-link');
+
+//первый запуск по классу и по функции onclick
 let congratulateLinkMain = document.querySelector('.congratulate_main_lnk');
+congratulateLinkMain.addEventListener('click', function () {
+    congratulate.runProgr();
+});
 
-runProgr(congratulateLinkMain);
-// runProgr(congratulateLinkMain);
-
-//грузим модуль Первая загрузка со случайным поздравлением
-function runProgr(event) {
-    let mainSection = document.querySelector('.main-block');//вставляем блок целиком с подблоками   
-    event.addEventListener('click', function () {
-        mainSection.innerHTML = `${renderMenu} ${renderFirst} 
-        <div class="other-cat">
-        Кроме фильмов наш генератор выдаёт варианты из
-        <a href="#" class="link-in-text">других категорий</a>,
-        например, &laquo;
-        <a href="#" class="link-in-text" onclick="film.getRndFilm()">Фильмы</a>&raquo;
-    </div>
-        `;
-
-        //Изменим цвет фона для совего блока
-        let colorMain = document.querySelector('.main-block');
-        colorMain.classList.add('main-color-2');
-        colorMain.classList.remove('main-color-1');
-        colorMain.classList.remove('main-color-3');
-        colorMain.classList.remove('main-color-4');
-        colorMain.classList.remove('main-color-5');
-        colorMain.classList.remove('main-color-6');
-        colorMain.classList.remove('main-color-7');
-
-        // setTimeout(firstRnd, 500);//время задержки, что бы успел выполниться callback у запроса 
-        firstRnd();
-
-    });
-};
 
 //грузим модуль с фильтром выбора поздравлений
 function rendGo() {
@@ -254,7 +226,7 @@ function firstRnd() {
         }
     };
     // запрос случайного поздравления по id номеру
-    congratulate._getRndCongratulate(`/index.php`, sendData)
+    congratulate.getRndCongratulate(`/index.php`, sendData)
         .then(data => {
             data = JSON.parse(data);
             findings.id = data.rnd.id;
@@ -269,6 +241,32 @@ class Congratulate {
     constructor() {
         this.data = [];
         this.alreadyViewedIds = [];//массив повторов
+    }
+
+    //грузим модуль Первая загрузка со случайным поздравлением
+    runProgr() {
+        let mainSection = document.querySelector('.main-block');//вставляем блок целиком с подблоками   
+        // event.addEventListener('click', function () {
+        mainSection.innerHTML = `${renderMenu} ${renderFirst} 
+        <div class="other-cat">
+        Кроме фильмов наш генератор выдаёт варианты из
+        <a href="#" class="link-in-text">других категорий</a>,
+        например, &laquo;
+        <a href="#" class="link-in-text" onclick="film.getRndFilm()">Фильмы</a>&raquo;
+    </div>
+        `;
+
+        //Изменим цвет фона для совего блока
+        let colorMain = document.querySelector('.main-block');
+        colorMain.classList.add('main-color-2');
+        colorMain.classList.remove('main-color-1');
+        colorMain.classList.remove('main-color-3');
+        colorMain.classList.remove('main-color-4');
+        colorMain.classList.remove('main-color-5');
+        colorMain.classList.remove('main-color-6');
+        colorMain.classList.remove('main-color-7');
+
+        firstRnd();
     }
 
     //слушаем нажатие - выбор пола, затемняем не активные кнопки
@@ -406,7 +404,7 @@ class Congratulate {
         };
 
         //запрос по критерию отбора (who, theme) 
-        congratulate._getRndCongratulate(`/index.php`, sendData)
+        this.getRndCongratulate(`/index.php`, sendData)
             .then(data => {
                 data = JSON.parse(data);
                 if (data.result === "OK") {
@@ -414,7 +412,6 @@ class Congratulate {
                     console.log(congratulate.data);
 
                     if (findings.who === congratulate.data.who && findings.congratulate === congratulate.data.theme) {
-
                         findings.congrRnd = congratulate.data.congratulate;
 
                         congratulate.renderText(findings.congrRnd);
@@ -441,7 +438,7 @@ class Congratulate {
     }
 
     //Функция AJAX получение рандомного поздравления
-    _getRndCongratulate(url, jdata) {
+    getRndCongratulate(url, jdata) {
         return $.post({
             url: url,
             data: jdata,
@@ -451,9 +448,8 @@ class Congratulate {
                     console.log("ERROR_GET_CONGRATULATE");
                 }
             }
-        })
+        });
     }
-
 
     init() {
         this.congratulateSomeone();
@@ -462,3 +458,6 @@ class Congratulate {
 }
 
 let congratulate = new Congratulate();
+
+
+

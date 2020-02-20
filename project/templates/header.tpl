@@ -11,7 +11,7 @@
                     <ul class="nav-list">
                         <li class="nav-item"><a href="#" class="nav-item-link film_main_lnk">Фильм</a></li>
                         <li class="nav-item"><a href="#" class="nav-item-link quote_main_lnk">Цитаты</a></li>
-                        <li class="nav-item"><a href="#" class="nav-item-link poem_main_lnk">Кулинарный рецепт</a></li>
+                        <li class="nav-item"><a href="#" class="nav-item-link words_main_lnk">Интересное слово</a></li>
                         <li class="nav-item"><a href="#" class="nav-item-link congratulate_main_lnk">Поздравления</a></li>
                         <li class="nav-item"><a href="#" class="nav-item-link">Ещё</a></li>
                     </ul>
